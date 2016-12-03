@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="stoneAxe" class="com.mycompany.factory.StoneAxe">
+	</bean>
+	<bean id="steelAxe" class="com.mycompany.factory.SteelAxe">
+	</bean> 
+	<bean id="chinese" class="com.mycompany.factory.Chinese">
+		<property name="axe" ref="stoneAxe" />
+	</bean>
+	
+	<bean id="stoneAxe1" class="com.mycompany.factory.AxeFactory1" factory-method="getAxe">
+		<constructor-arg value="stone"></constructor-arg>
+	</bean>
+	<bean id="steelAxe1" class="com.mycompany.factory.AxeFactory1" factory-method="getAxe">
+		<constructor-arg value="steel"></constructor-arg>
+	</bean>
+	
+	<bean id="axeFactory2" class="com.mycompany.factory.AxeFactory2" >
+	</bean>
+	<bean id="stoneAxe2" factory-bean="axeFactory2" factory-method="getAxe" >
+		<constructor-arg value="stone"></constructor-arg>
+	</bean>
+	<bean id="steelAxe2" factory-bean="axeFactory2" factory-method="getAxe" >
+		<constructor-arg value="steel"></constructor-arg>
+	</bean>
+	
+	<bean id="stoneAxeFactoryBean" class="com.mycompany.factory.StoneAxeFactoryBean">
+	</bean>
+	<bean id="steelAxeFactoryBean" class="com.mycompany.factory.SteelAxeFactoryBean">
+	</bean>
+	
+</beans>

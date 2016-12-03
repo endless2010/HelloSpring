@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="person" class="com.mycompany.type.Person" >
+		<property name="name" value="helloSpring" />
+		<property name="age"  value="30" />
+	</bean>
+	
+	<bean id="defaultPerson" class="com.mycompany.type.Person" >
+	</bean>
+	
+	<bean id="NullPerson" class="com.mycompany.type.Person" >
+		<property name="name"><null/></property>
+	</bean>
+	
+	<bean id="typetest" class="com.mycompany.type.TypeTestBean" >
+		<property name="booleanType" value="TRue" />
+		<property name="charType"  value="s" />
+		<property name="intType"  value="20" />
+		<property name="longType"  value="2020" />
+		<property name="floatType"  value="3.0f" />
+		<property name="doubleType"  value="4.0" />
+		<property name="arrayType">
+			<list>
+				<value>array Element1</value>
+				<value>array Element2</value>
+			</list>
+		</property>
+		<property name="listType">
+			<list>
+				<value>list Element1</value>
+				<value>list Element2</value>
+			</list>
+		</property>
+		<property name="setType">
+			<set>
+				<value>set Element1</value>
+				<value>set Element2</value>
+			</set>
+		</property>
+		<property name="mapType">
+			<map>
+				<entry key="map_key1" value="map value1"/>
+				<entry key="map_key2" value="map value2"/>
+			</map>
+		</property>
+		<property name="complexlistType">
+			<list>
+				<value>complex list Element1</value>
+				<ref local="person"/>
+				<bean class="com.mycompany.type.Person"/>
+			</list>
+		</property>
+		<property name="complexsetType">
+			<set>
+				<value>complex list Element1</value>
+				<ref local="person"/>
+				<bean class="com.mycompany.type.Person"/>
+			</set>
+		</property>
+		<property name="complexmapType">
+			<map>
+				<entry key="complex_map_key1" value="complex_map value1"/>
+				<entry key="complex_map_key2" value-ref="person"/>
+				<entry key-ref="defaultPerson" value="complex_map value3"/>
+				<entry key-ref="person" value-ref="person"/>
+			</map>
+		</property>
+		<property name="propertyType">
+			<props>
+				<prop key="prop_key1">prop_value1</prop>
+				<prop key="prop_key2">prop_value2</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
+

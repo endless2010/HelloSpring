@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="stoneAxe" class="com.mycompany.injection.StoneAxe" >
+	</bean>
+	<bean id="steelAxe" class="com.mycompany.injection.SteelAxe" >
+	</bean>
+	<bean id="chinese" class="com.mycompany.injection.Chinese" >		
+		 	<property name="axe" ref="stoneAxe" /> 
+		 	<constructor-arg index="0" ref="steelAxe" />
+	</bean>
+	<bean id="chinese_p" class="com.mycompany.injection.Chinese" p:age="30" p:axe-ref="steelAxe">		
+	</bean>	
+</beans>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="chinese_singleton1" class="com.mycompany.scope.Chinese">
+	</bean>	
+	<bean id="chinese_singleton2" class="com.mycompany.scope.Chinese">
+	</bean>	
+	<bean id="chinese_prototype1" class="com.mycompany.scope.Chinese" scope="prototype">
+	</bean>	
+	<bean id="chinese_prototype2" class="com.mycompany.scope.Chinese" scope="prototype">
+	</bean>	
+</beans>

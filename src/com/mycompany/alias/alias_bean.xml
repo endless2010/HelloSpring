@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="message" class="com.mycompany.alias.Message" name="alias1,alias2" >
+		<property name="message" value="helloSpring" />
+	</bean>
+	<alias name="message" alias="alias3"></alias>
+	<alias name="message" alias="alias4"></alias>
+	
+	<bean id="messageService" class="com.mycompany.alias.MessageService" >
+		<property name="message1" ref="alias1" />
+		<property name="message2" ref="alias2" />
+		<property name="message3" ref="alias3" />
+		<property name="message4" ref="alias4" />
+	</bean>
+	
+
+</beans>
+
